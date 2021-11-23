@@ -1,1 +1,1 @@
-# Modified-AES
+# Accelerating the Advanced Encryption Standard Algorithm and Implementing Modified AES Algorithm
