@@ -1,4 +1,5 @@
 # Accelerating the Advanced Encryption Standard Algorithm and Implementing Modified AES Algorithm
+To accelerate the AES algorithm on FPGA and compare the speedup with both AES and Modified AES algorithms.
 
 ## Deliverables Aimed 
 - Accelerating the AES (Advanced Encryption Standard) and Modified AES algorithms on FPGA. Implementation using Verilog (including Test benches).
