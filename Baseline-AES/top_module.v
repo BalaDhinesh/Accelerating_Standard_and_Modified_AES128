@@ -5,7 +5,7 @@ input[127:0] inp_data;
 input[127:0] inp_key;
 output[127:0] out_data;
 
-wire [127:0] round0_out_data,round2_out_data,round3_out_data,round4_out_data,round5_out_data,round6_out_data,round7_out_data,round8_out_data,round9_out_data);
+wire [127:0] round0_out_data,round1_out_data,round2_out_data,round3_out_data,round4_out_data,round5_out_data,round6_out_data,round7_out_data,round8_out_data,round9_out_data;
 wire [127:0] keyout1, keyout2, keyout3, keyout4, keyout5, keyout6, keyout7, keyout8, keyout9;
 
 assign round0_out_data = inp_data^inp_key;

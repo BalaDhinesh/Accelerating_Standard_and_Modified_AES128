@@ -14,14 +14,14 @@ module GENERATE_KEY(round,inp_key,out_key);
     assign out_key[63:32] = w0^temp^round_constant(round)^w1^w2;
     assign out_key[31:0] = w0^temp^round_constant(round)^w1^w2^w3;
 
-    sbox s0(.a(w3[13:16]),.c(temp[31:24]));
-    sbox s1(.a(w3[15:8]),.c(temp[23:16]));
-    sbox s2(.a(w3[7:0]),.c(temp[15:8]));
-    sbox s3(.a(w2[31:24]),.c(temp[7:0]));
+    FORWARD_SUBSTITUTION_BOX s0(.a(w3[23:16]),.c(temp[31:24]));
+    FORWARD_SUBSTITUTION_BOX s1(.a(w3[15:8]),.c(temp[23:16]));
+    FORWARD_SUBSTITUTION_BOX s2(.a(w3[7:0]),.c(temp[15:8]));
+    FORWARD_SUBSTITUTION_BOX s3(.a(w2[31:24]),.c(temp[7:0]));
 
     function [31:0] round_constant;
         input [3:0] round;
-        case (rc)
+        case (round)
             4'h0: round_constant = 32'h01_00_00_00;
             4'h1: round_constant = 32'h02_00_00_00;
             4'h2: round_constant = 32'h04_00_00_00;
