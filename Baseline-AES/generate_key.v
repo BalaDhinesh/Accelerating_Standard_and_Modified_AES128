@@ -17,7 +17,7 @@ module GENERATE_KEY(round,inp_key,out_key);
     FORWARD_SUBSTITUTION_BOX s0(.a(w3[23:16]),.c(temp[31:24]));
     FORWARD_SUBSTITUTION_BOX s1(.a(w3[15:8]),.c(temp[23:16]));
     FORWARD_SUBSTITUTION_BOX s2(.a(w3[7:0]),.c(temp[15:8]));
-    FORWARD_SUBSTITUTION_BOX s3(.a(w2[31:24]),.c(temp[7:0]));
+    FORWARD_SUBSTITUTION_BOX s3(.a(w3[31:24]),.c(temp[7:0]));
 
     function [31:0] round_constant;
         input [3:0] round;
