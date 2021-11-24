@@ -8,5 +8,4 @@ module GENERATE_KEY(rc,keyin,keyout);
     assign w1 = keyin[95:64];
     assign w2 = keyin[63:32];
     assign w3 = keyin[31:0];
-
     
