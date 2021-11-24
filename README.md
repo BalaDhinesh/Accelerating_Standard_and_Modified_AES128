@@ -8,3 +8,6 @@ To accelerate the AES algorithm on FPGA and compare the speedup with both AES an
 - Comparing the speedup using our PC. 
 
 ## Advanced Encryption Standard
+
+
+__Online AES Calculator:__ http://testprotect.com/appendix/AEScalc
