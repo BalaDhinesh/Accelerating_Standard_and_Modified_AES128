@@ -1,7 +1,7 @@
 module ROUND_ITERATION(clk, round, inp_data, inp_key, out_key, out_data);
 
 input clk;
-input [31:0] round;
+input [3:0] round;
 input [127:0] inp_data;
 input [127:0] inp_key;
 output [127:0] out_key;
