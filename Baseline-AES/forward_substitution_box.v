@@ -260,6 +260,7 @@ output reg [7:0] c; // OUTPUT
             8'hfd: c=8'h54;
             8'hfe: c=8'hbb;
             8'hff: c=8'h16;
+            default: c=8'h00;
 	    endcase
     end
 

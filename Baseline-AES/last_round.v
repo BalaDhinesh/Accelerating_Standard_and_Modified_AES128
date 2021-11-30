@@ -8,9 +8,9 @@ output  [127:0] out_data;
 
 wire [127:0] sub_data,shift_data,out_key;
 
-GENERATE_KEY n0(.round(round),.inp_key(inp_key),.out_key(out_key));
-SUB_BYTES n1(.inp_data(inp_data),.sub_data(sub_data));
-SHIFT_ROWS n2(.inp_data(sub_data),.shift_data(shift_data));
+GENERATE_KEY n0(.clk(clk),.round(round),.inp_key(inp_key),.out_key(out_key));
+SUB_BYTES n1(.clk(clk),.inp_data(inp_data),.sub_data(sub_data));
+SHIFT_ROWS n2(.clk(clk),.inp_data(sub_data),.shift_data(shift_data));
 
 assign out_data = out_key^shift_data;
 

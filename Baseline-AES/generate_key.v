@@ -1,4 +1,5 @@
-module GENERATE_KEY(round,inp_key,out_key);
+module GENERATE_KEY(clk,round,inp_key,out_key);
+    input clk;
     input [3:0] round; // Round number
     input [127:0]inp_key; // 128-bit Input Key
     output [127:0] out_key; // 128-bit Output Key

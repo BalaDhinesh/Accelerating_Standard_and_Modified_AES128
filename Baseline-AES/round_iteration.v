@@ -9,10 +9,10 @@ output [127:0] out_data;
 
 wire [127:0] sub_data,shift_data,mixed_data;
 
-GENERATE_KEY m0(.round(round), .inp_key(inp_key), .out_key(out_key));
-SUB_BYTES m1(.inp_data(inp_data), .sub_data(sub_data));
-SHIFT_ROWS m2(.inp_data(sub_data), .shift_data(shift_data));
-MIX_COLUMNS m3(.inp_data(shift_data), .mixed_data(mixed_data));
+GENERATE_KEY m0(.clk(clk),.round(round), .inp_key(inp_key), .out_key(out_key));
+SUB_BYTES m1(.clk(clk),.inp_data(inp_data), .sub_data(sub_data));
+SHIFT_ROWS m2(.clk(clk),.inp_data(sub_data), .shift_data(shift_data));
+MIX_COLUMNS m3(.clk(clk),.inp_data(shift_data), .mixed_data(mixed_data));
 
 assign out_data = out_key^mixed_data;
 
