@@ -27,8 +27,8 @@ initial begin
     clk=0;
     inp_data=128'h54494D47206E616C6F4E20726F6E6F43;
     inp_key=128'h100F0E0D0C0B0A090807060504030201;
-    #300 $display("Encrypted Value: %h", out_data[127:0]);
-    #100 $finish;
+    #290 $display("Encrypted Value: %h", out_data[127:0]);
+    #10 $finish;
 end
 always #5 clk = !clk;
 
