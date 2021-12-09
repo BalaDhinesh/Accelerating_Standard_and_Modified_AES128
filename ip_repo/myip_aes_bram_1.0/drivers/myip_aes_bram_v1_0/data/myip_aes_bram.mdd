@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER myip_aes_bram
+	OPTION supported_peripherals = (myip_aes_bram);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = myip_aes_bram;
+END DRIVER
