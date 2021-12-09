@@ -1,33 +1,34 @@
-module SUB_BYTES(clk,inp_data,sub_data);
+module SUB_BYTES(
+    input clk,
+    input [127:0] IN_DATA,
+    output [127:0] SB_DATA
+);
 
-input clk;
-input [127:0] inp_data;
-output reg [127:0] sub_data;
+reg [127:0] SB_DATA;
+wire [127:0] SB_DATA_W;
 
-wire [127:0] sub_data_temp;
+    FORWARD_SUBSTITUTION_BOX INST0(.clk(clk), .A(IN_DATA[127:120]), .C(SB_DATA_W[127:120]));
+    FORWARD_SUBSTITUTION_BOX INST1(.clk(clk), .A(IN_DATA[119:112]), .C(SB_DATA_W[119:112]));
+    FORWARD_SUBSTITUTION_BOX INST2(.clk(clk), .A(IN_DATA[111:104]), .C(SB_DATA_W[111:104]));
+    FORWARD_SUBSTITUTION_BOX INST3(.clk(clk), .A(IN_DATA[103:96]), .C(SB_DATA_W[103:96]));
+    
+    FORWARD_SUBSTITUTION_BOX INST4(.clk(clk), .A(IN_DATA[95:88]), .C(SB_DATA_W[95:88]));
+    FORWARD_SUBSTITUTION_BOX INST5(.clk(clk), .A(IN_DATA[87:80]), .C(SB_DATA_W[87:80]));
+    FORWARD_SUBSTITUTION_BOX INST6(.clk(clk), .A(IN_DATA[79:72]), .C(SB_DATA_W[79:72]));
+    FORWARD_SUBSTITUTION_BOX INST7(.clk(clk), .A(IN_DATA[71:64]), .C(SB_DATA_W[71:64]));
 
-    FORWARD_SUBSTITUTION_BOX s0(.a(inp_data[127:120]),.c(sub_data_temp[127:120]));
-    FORWARD_SUBSTITUTION_BOX s1(.a(inp_data[119:112]),.c(sub_data_temp[119:112]));
-    FORWARD_SUBSTITUTION_BOX s2(.a(inp_data[111:104]),.c(sub_data_temp[111:104]));
-    FORWARD_SUBSTITUTION_BOX s3(.a(inp_data[103:96]),.c(sub_data_temp[103:96]));
-
-    FORWARD_SUBSTITUTION_BOX s4(.a(inp_data[95:88]),.c(sub_data_temp[95:88]));
-    FORWARD_SUBSTITUTION_BOX s5(.a(inp_data[87:80]),.c(sub_data_temp[87:80]));
-    FORWARD_SUBSTITUTION_BOX s6(.a(inp_data[79:72]),.c(sub_data_temp[79:72]));
-    FORWARD_SUBSTITUTION_BOX s7(.a(inp_data[71:64]),.c(sub_data_temp[71:64]));
-
-    FORWARD_SUBSTITUTION_BOX s8(.a(inp_data[63:56]),.c(sub_data_temp[63:56]));
-    FORWARD_SUBSTITUTION_BOX s9(.a(inp_data[55:48]),.c(sub_data_temp[55:48]));
-    FORWARD_SUBSTITUTION_BOX s10(.a(inp_data[47:40]),.c(sub_data_temp[47:40]));
-    FORWARD_SUBSTITUTION_BOX s11(.a(inp_data[39:32]),.c(sub_data_temp[39:32]));
-
-    FORWARD_SUBSTITUTION_BOX s12(.a(inp_data[31:24]),.c(sub_data_temp[31:24]));
-    FORWARD_SUBSTITUTION_BOX s13(.a(inp_data[23:16]),.c(sub_data_temp[23:16]));
-    FORWARD_SUBSTITUTION_BOX s14(.a(inp_data[15:8]),.c(sub_data_temp[15:8]));
-    FORWARD_SUBSTITUTION_BOX s15(.a(inp_data[7:0]),.c(sub_data_temp[7:0]));
-
-    always @(posedge clk) begin
-        sub_data <= sub_data_temp;
+    FORWARD_SUBSTITUTION_BOX INST8(.clk(clk), .A(IN_DATA[63:56]), .C(SB_DATA_W[63:56]));
+    FORWARD_SUBSTITUTION_BOX INST9(.clk(clk), .A(IN_DATA[55:48]), .C(SB_DATA_W[55:48]));
+    FORWARD_SUBSTITUTION_BOX INST10(.clk(clk), .A(IN_DATA[47:40]), .C(SB_DATA_W[47:40]));
+    FORWARD_SUBSTITUTION_BOX INST11(.clk(clk), .A(IN_DATA[39:32]), .C(SB_DATA_W[39:32]));
+    
+    FORWARD_SUBSTITUTION_BOX INST12(.clk(clk), .A(IN_DATA[31:24]), .C(SB_DATA_W[31:24]));
+    FORWARD_SUBSTITUTION_BOX INST13(.clk(clk), .A(IN_DATA[23:16]), .C(SB_DATA_W[23:16]));
+    FORWARD_SUBSTITUTION_BOX INST14(.clk(clk), .A(IN_DATA[15:8]), .C(SB_DATA_W[15:8]));
+    FORWARD_SUBSTITUTION_BOX INST15(.clk(clk), .A(IN_DATA[7:0]), .C(SB_DATA_W[7:0]));
+  
+  always @(*) begin
+        SB_DATA <= SB_DATA_W;
     end
 
 endmodule

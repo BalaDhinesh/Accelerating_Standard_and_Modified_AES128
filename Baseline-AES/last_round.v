@@ -1,17 +1,15 @@
-module LAST_ROUND(clk, round, inp_data, inp_key, out_data);
+module LAST_ROUND(
+    input clk, 
+    input [127:0] IN_DATA, 
+    input [127:0] IN_KEY, 
+    output reg [127:0] OUT_DATA
+);
 
-input clk;
-input [3:0] round;
-input [127:0] inp_data;
-input [127:0] inp_key;
-output  [127:0] out_data;
+wire [127:0] SB_DATA, SHIFT_DATA, OUT_KEY;
 
-wire [127:0] sub_data,shift_data,out_key;
+SUB_BYTES SB(.clk(clk), .IN_DATA(IN_DATA), .SB_DATA(SB_DATA));
+SHIFT_ROWS SR(.clk(clk), .IN_DATA(SB_DATA), .SHIFT_DATA(SHIFT_DATA));
 
-GENERATE_KEY n0(.clk(clk),.round(round),.inp_key(inp_key),.out_key(out_key));
-SUB_BYTES n1(.clk(clk),.inp_data(inp_data),.sub_data(sub_data));
-SHIFT_ROWS n2(.clk(clk),.inp_data(sub_data),.shift_data(shift_data));
-
-assign out_data = out_key^shift_data;
+always @(posedge clk) OUT_DATA <= IN_KEY ^ SHIFT_DATA;
 
 endmodule
