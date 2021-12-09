@@ -17,7 +17,7 @@ To accelerate the AES algorithm on FPGA and compare the speedup with both AES an
 - **MixColumns** performs mathematical manipulation on each byte and outputs a completely new byte (except in the last round).                
 - **Add Round Keys** - Output of previous *MixColums* is bitwise XOR-ed with a *Round Key*.             
 - **Decryption** in AES is just the reverse process of encryption.            
-[Reference 1](https://www.geeksforgeeks.org/advanced-encryption-standard-aes/)
+[Reference](https://www.geeksforgeeks.org/advanced-encryption-standard-aes/)
 
 ## Modified AES:
 
