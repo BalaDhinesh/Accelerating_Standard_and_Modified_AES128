@@ -148,6 +148,15 @@ At the very first time when we tried running our code in OpenLane Silicon Compil
 
 After these changes, the compilation was successfull till Global routing, wherein the routing passed on and it moved to Static Timing Analysis which throwed an "Hold Violation" Error. At this point the error logs weren't understandable, since everything was mapped to clock buffers and so on. Hence we tried tweaking some default parameters in configuration used for running these exports as mentioned in the "OpenLane Documentation" such as `GLB_RESIZER_HOLD_SLACK_MARGIN`, `GLB_RESIZER_HOLD_MAX_BUFFER_PERCENT`, `PL_RESIZER_HOLD_SLACK_MARGIN`, and `PL_RESIZER_HOLD_MAX_BUFFER_PERCENT`. Even then, the same error continues to occur and we are in the process of understanding the exact intermediate steps involved in the automation part and making it work. Here is the [flow summary report](final_summary_report.csv) that was generated, this states the clock frequency, area and the width of each of the traces.
 
+Here are few screenshots of error that we encountered while compiling,
+
+![image](https://user-images.githubusercontent.com/64090461/145613957-e6825fbe-9148-4a98-a39d-e1dfcbceee93.png)
+The above image shows an error that occured in the placement.
+
+The below one shows the Hold Violation error,
+![image](https://user-images.githubusercontent.com/64090461/145614204-97030b8e-0682-4747-8015-a96b3a67c4f6.png)
+
+
 ### References
 
 **Online AES Calculator:**  http://testprotect.com/appendix/AEScalc
