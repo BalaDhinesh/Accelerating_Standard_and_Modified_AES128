@@ -49,6 +49,7 @@ For the AES [forward_substitution_box.v](https://github.com/BalaDhinesh/Modified
 
 ### Software Development of AES using Vitis:
 We use Vitis IDE to send inputs(plain text and key) to the Microblaze and print the output(cipher text) using UART interface. Xilinx supports __virtual UART__ through Jtag, which is useful when the physical UART doesn't exist or is non-functional. We then calculated the total number of cycles taken. To calculate the number of cycles, we created a custom IP using Vitis HLS and initialized it. The output the UART Serial console is below:
+
 ![image](https://user-images.githubusercontent.com/64545984/145583370-104a256c-6a84-4f55-8627-0ed141b10b40.png)
 
 [Source Code](https://github.com/BalaDhinesh/Modified-AES/blob/main/VitisIDE/aes_encryption.c)
