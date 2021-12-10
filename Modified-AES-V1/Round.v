@@ -9,7 +9,8 @@ module ROUND_ITERATION(
 
 wire [127:0] keyout_0,keyout_1,sb,sr,mcl,xor_op;
   wire [127:0] mod_add;
-
+  
+  // modified here - CIPHER ROUND ALGORITHM
   GENERATE_KEY t0(clk,ROUND_KEY,IN_KEY,keyout_0);
   GENERATE_KEY t1(clk,ROUND_KEY,keyout_0,keyout_1);
   GENERATE_KEY t2(clk,ROUND_KEY,keyout_1,OUT_KEY);
