@@ -21,5 +21,8 @@ To accelerate the AES algorithm on FPGA and compare the speedup with both AES an
 
 ## Modified AES:
 
+## Hamming Distance and Avalanche Effect Comparison
+***Humming Distance*** Hamming distance is a metric for comparing two binary data strings. While comparing two binary strings of equal length, Hamming distance is the number of bit positions in which the two bits are different. It is used for error detection or error correction when data is transmitted over computer networks. It is also using in coding theory for comparing equal length data words. *In order to calculate the Hamming distance between two strings, and , we perform their XOR operation, (a⊕ b), and then count the total number of 1s in the resultant string.*
+
 
 __Online AES Calculator:__ http://testprotect.com/appendix/AEScalc
