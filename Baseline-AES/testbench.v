@@ -46,15 +46,3 @@ module testbench;
   assign out_data = {out_data_3,out_data_2,out_data_1,out_data_0};
   always #5  clk =  ! clk; 
 endmodule
-
-//Hamming Distance 63
-//P-9cdd85de85b48bed892f02d8a5cbdacb
-//Q-ace7083761553a6b3a97bcb1740b176a
-
-// Hamming Distance is 65
-//output:442aa7a5e96ab4370cb2e42b5edc189f for key(45654C65644D6F796A44736569655270), inp(B9A920480E3DC1705EB238D7C256665A)
-//output:5bf2b765b53c1514f9d6d325f300e77b for key(45654C65644D6F796A44736569655271), inp(B9A920480E3DC1705EB238D7C256665A)
-
-// Hamming Distance is 64
-//output:442aa7a5e96ab4370cb2e42b5edc189f for key(45654C65644D6F796A44736569655270), inp(B9A920480E3DC1705EB238D7C256665A)
-//output:83961acf40a2f26aff2af977509c3794 for key(45654C65644D6F796A46736569655270), inp(B9A920480E3DC1705EB238D7C256665A)
