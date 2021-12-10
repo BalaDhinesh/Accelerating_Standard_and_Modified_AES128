@@ -80,6 +80,17 @@ From this grpah, we also compute the average Avalnche effect for each of the alg
 
 From the above we can infer that the Modified AES V1 has significant improvement in the Avalanche effect, while the Modified AES V2 has a marginal improvement in the Avalnche effect.
 
+## Experimenting Open-Source Silicon Compilers
+With the advent of open-source technologies for Chip development, there were several RTL designs, EDA Tools which were open-sourced. The missing piece in a complete Open source chip development was filled by the SKY130 PDK from Skywater Technologies and Google. 
+
+[OpenLane](https://github.com/The-OpenROAD-Project/OpenLane) provides a completely automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, Fault, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII. Another open source framework [SiliconCompiler](https://github.com/siliconcompiler/siliconcompiler) was also developed very recently that converts RTL source code to silicon.
+
+So with lots of curiosity, we tried to compile our verilog code using the above-mentioned Silicon Compilers that run automation scripts which perform Synthesis, Floor Planning, Placement, Clock Tree Synthesis, Fake antenna and diode swapping, Routing, RC Extraction, Static Timing Analysis, Sign-off steps (Design Rule Check and Layout Versus Schematic), finally with GDSII Extraction.
+
+At the very first time when we tried running our code in OpenLane Silicon Compiler, there were few errors that occured in the synthesis part. These were rectified by changing the coding style, and adding clock edges at appropriate places. Further then the compilation advanced till Placement and there few conflicts that arised. These conflicts were difficult to debug systematically, so we followed even better coding style and different strategies to debug the error with some level of understanding from the error logs generated. 
+
+After these changes, the compilation was successfull till Global routing, wherein the routing passed on and it moved to Static Timing Analysis which throwed an "Hold Violation" Error. At this point the error logs weren't understandable, since everything was mapped to clock buffers and so on. Hence we tried tweaking some default parameters in configuration used for running these exports as mentioned in the "OpenLane Documentation" such as `GLB_RESIZER_HOLD_SLACK_MARGIN`, `GLB_RESIZER_HOLD_MAX_BUFFER_PERCENT`, `PL_RESIZER_HOLD_SLACK_MARGIN`, and `PL_RESIZER_HOLD_MAX_BUFFER_PERCENT`. Even then, the same error continues to occur and we are in the process of understanding the exact intermediate steps involved in the automation part and making it work. Here is the [flow summary report](final_summary_report.csv) that was generated, this states the clock frequency, area and the width of each of the traces.
+
 ### References
 
 **Online AES Calculator:**  http://testprotect.com/appendix/AEScalc
