@@ -44,11 +44,23 @@ Here is the analysis of the Standard AES implemented in Verilog and C and accele
 ##### Noise Analysis Report
 ![image](https://user-images.githubusercontent.com/64545984/145573061-3ca2eeb4-963f-41e9-8407-e496d74eb166.png)
 
-### Software Development of AES using Vitis
-To run the same code in ________________ [Source Code](https://github.com/BalaDhinesh/Modified-AES/blob/main/VitisIDE/aes_encryption.c)
+### Optimizations:
+For the AES [forward_substitution_box.v](https://github.com/BalaDhinesh/Modified-AES/blob/main/Baseline-AES/forward_substitution_box.v), we initially inferred LUTs for storing the values. Since LUTs in Xilinx Artix-7 based boards are of 6-input and 2-output type, it will cascade many number of LUTs linearly to achieve for 128 different types of cases to substitute which increases the critical path delay in a huge factor. It took a total delay of around 49ns(__20.66MHz__). To avoid this huge delay, we used Block RAMs instead. Block RAMs are quite flexible in organization. By doing this, we achieve the maximum delay to just 12.821ns which is well suited for our 50MHz frequency board. Maximum operational frequency that can be used is now __139.29 MHz__.
 
-##### Output in Serial console
+### Software Development of AES using Vitis:
+We use Vitis IDE to send inputs(plain text and key) to the Microblaze and print the output(cipher text) using UART interface. Xilinx supports __virtual UART__ through Jtag, which is useful when the physical UART doesn't exist or is non-functional. We then calculated the total number of cycles taken. To calculate the number of cycles, we created a custom IP using Vitis HLS and initialized it. The output the UART Serial console is below:
+![image](https://user-images.githubusercontent.com/64545984/145583370-104a256c-6a84-4f55-8627-0ed141b10b40.png)
 
+[Source Code](https://github.com/BalaDhinesh/Modified-AES/blob/main/VitisIDE/aes_encryption.c)
+
+
+
+##### Performance from the PC/Laptop of AES code
+![image](https://user-images.githubusercontent.com/64545984/145573559-f44572da-2fe2-4ed2-8963-06e09100a68d.png)
+
+To compare the running time of the AES algorithm in Laptop/PC with that of hardware, we used a [C reference from online](https://github.com/openluopworld/aes_128) and ran it on our local machine and used `perf` profiler to compute the time taken to run it.
+
+### Performance Summary:
 __No of cycles in hardware:__ 447(50MHz)
 
 __No of cycles in behavioural software simulation:__ 35500(50MHz)
@@ -60,12 +72,6 @@ __Time taken in Hardware:__ 0.00894 ms
 __Time taken in Laptop/PC:__ 0.34ms
 
 __Speedup Achieved:__  38.013x (times)
-
-##### Performance from the PC/Laptop of AES code
-![image](https://user-images.githubusercontent.com/64545984/145573559-f44572da-2fe2-4ed2-8963-06e09100a68d.png)
-
-To compare the running time of the AES algorithm in Laptop/PC with that of hardware, we used a [C reference from online](https://github.com/openluopworld/aes_128) and ran it on our local machine and used `perf` profiler to compute the time taken to run it.
-
 
 ## Modified AES Algorithm
 In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm have been presented in the following papers, and we tried implementing them and analysing them in terms of their security using Avalanche effect.
