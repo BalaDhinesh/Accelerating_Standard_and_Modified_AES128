@@ -76,4 +76,10 @@ From this grpah, we also compute the average Avalnche effect for each of the alg
 
 From the above we can infer that the Modified AES V1 has significant improvement in the Avalanche effect, while the Modified AES V2 has a marginal improvement in the Avalnche effect.
 
-__Online AES Calculator:__ http://testprotect.com/appendix/AEScalc
+### References
+
+**Online AES Calculator:**  http://testprotect.com/appendix/AEScalc
+1. https://aircconline.com/ijcnc/V9N2/9217cnc06.pdf
+2. https://pdfs.semanticscholar.org/7ee8/572e5457eb6bc043ecbefc933dda52f98875.pdf
+3. https://www.researchgate.net/publication/326596710_An_Efficient_AES_Implementation_using_FPGA_with_Enhanced_Security_Features
+4. http://www.iajet.org/documents/vol.3/no.1/Enhancement%20the%20Security%20of%20AES%20Against%20Modern%20Attacks%20by%20Using%20Variable%20Key%20Block%20Cipher.pdf
