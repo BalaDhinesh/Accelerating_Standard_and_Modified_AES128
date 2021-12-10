@@ -104,7 +104,7 @@ Hamming distance is a metric for comparing two binary data strings. While compar
 
 *In order to calculate the Hamming distance between two strings, and , we perform their XOR operation, (a⊕ b), and then count the total number of 1s in the resultant string.*
 
-### Avalance Effect
+### Avalanche Effect
 In cryptography, the avalanche effect is the desirable property of cryptographic algorithms, typically block ciphers and cryptographic hash functions, wherein if an input is changed slightly (for example, flipping a single bit), the output changes significantly (e.g., half the output bits flip). In the case of high-quality block ciphers, such a small change in either the key or the plaintext should cause a drastic change in the ciphertext. If a block cipher or cryptographic hash function does not exhibit the avalanche effect to a significant degree, then it has poor randomization, and thus a cryptanalyst can make predictions about the input, being given only the output. This may be sufficient to partially or completely break the algorithm. Thus, the avalanche effect is a desirable condition from the point of view of the designer of the cryptographic algorithm or device.
 
 ***Avalanche effect = (Hamming distance/Block size) ∗ 100 %***
@@ -127,7 +127,7 @@ Hence we now, fix the input data and key same as mentioned above and flip each b
 
 ![image](https://user-images.githubusercontent.com/64090461/145546650-c3f96bbc-d0d3-4e3e-bcc2-fc3c78460552.png)
 
-From this grpah, we also compute the average Avalnche effect for each of the algorithm and the results are as follows,
+From this grpah, we also compute the average Avalanche effect for each of the algorithm and the results are as follows,
 
 | Method | Avalanche Effect |
 | :---: | :---: |
@@ -135,7 +135,7 @@ From this grpah, we also compute the average Avalnche effect for each of the alg
 | Modified V1 |64.1953125%|
 |Modified V2 | 63.9921875%|
 
-From the above we can infer that the Modified AES V1 has significant improvement in the Avalanche effect, while the Modified AES V2 has a marginal improvement in the Avalnche effect.
+From the above we can infer that the Modified AES V1 has significant improvement in the Avalanche effect, while the Modified AES V2 has a marginal improvement in the Avalanche effect.
 
 ## Experimenting Open-Source Silicon Compilers
 With the advent of open-source technologies for Chip development, there were several RTL designs, EDA Tools which were open-sourced. The missing piece in a complete Open source chip development was filled by the SKY130 PDK from Skywater Technologies and Google. 
