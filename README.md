@@ -74,6 +74,13 @@ __Time taken in Laptop/PC:__ 0.34ms
 
 __Speedup Achieved:__  38.013x (times)
 
+### AES Hardware Simulation using Integrated Logic Analyser:
+
+We simulated the encryption algorithm using Virtual IOs and Integrated Logic Analyser IP cores and tested the results obtained from FPGA board. Below is the image of the block design.
+![image](https://user-images.githubusercontent.com/64545984/145601653-a8e30cb4-7118-4eb4-a7e4-27b8a335d666.png)
+
+**NOTE:** As the number of probes and corresponding probe width increases, the uasge of BRAM increases and critical delay increases. So we should choose the probe width and sample data depth carefully.
+
 ## Modified AES Algorithm
 In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm have been presented in the following papers, and we tried implementing them and analysing them in terms of their security using Avalanche effect.
 
