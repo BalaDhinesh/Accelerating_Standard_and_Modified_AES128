@@ -28,7 +28,11 @@ Description of each of the sub-processes:
 In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm have been presented in the following papers, and we tried implementing them and analysing them in terms of their security using Avalanche effect.
 
 ### Modified AES V1
+In this article tilted [“Modified AES Cipher Round and Key Schedule”](https://www.researchgate.net/publication/332557093_Modified_AES_Cipher_Round_and_Key_Schedule), (by Edjie M. De Los Reyes (et. al), there are modifications in the key schedule. The two modifications to the standard AES are in (1) the key schedule algorithm and (2) the cipher round algorithm. 
 
+***Key scheduling algorithm*** of AES is modified by introducing an additional byte substitution process and round constant addition through XOR prior to the generation of the subkeys to prevent the cipher key bits from being used directly.
+
+***Cipher round algorithm*** modifications to the AES cipher round are inclusions of XOR key permutation after the SubBytes operation and Modulo Addition key permutation after the ShiftRow operation from rounds one to nine. In the final round  of the encryption, round ten, modulo addition is added after the SubBytes operation.
 ### Modified AES V2
 In this article titled ["Modified Advanced Encryption Standard Algorithm
 for Information Security"](https://pdfs.semanticscholar.org/7ee8/572e5457eb6bc043ecbefc933dda52f98875.pdf), (by O.C Abikoye (et. al)), there are *two changes made to the AES algorithm namely in the Sub-bytes and Shift-rows step.* However, we have only incorporated the change in the Sub-bytes step, and used the standard Shift-rows step in the implementation of the same.
