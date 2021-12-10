@@ -74,7 +74,7 @@ __Time taken in Laptop/PC:__ 0.34ms
 
 __Speedup Achieved:__  38.013x (times)
 
-### AES Hardware Simulation using Integrated Logic Analyser:
+## AES Hardware Simulation using Integrated Logic Analyser:
 
 We simulated the encryption algorithm using Virtual IOs and Integrated Logic Analyser IP cores and tested the results obtained from FPGA board. Below is the image of the block design.
 ![image](https://user-images.githubusercontent.com/64545984/145601653-a8e30cb4-7118-4eb4-a7e4-27b8a335d666.png)
