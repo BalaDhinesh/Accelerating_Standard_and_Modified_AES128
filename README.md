@@ -26,7 +26,11 @@ In order to enhance the randomness in the encryption and make it more complicate
 
 ### Modified AES V2
 In this article titled ["Modified Advanced Encryption Standard Algorithm
-for Information Security"](https://pdfs.semanticscholar.org/7ee8/572e5457eb6bc043ecbefc933dda52f98875.pdf), (by O.C Abikoye (et. al)), there has been *two changes made to the standard AES algorithm namely in the Sub-bytes and Shift-rows step.* 
+for Information Security"](https://pdfs.semanticscholar.org/7ee8/572e5457eb6bc043ecbefc933dda52f98875.pdf), (by O.C Abikoye (et. al)), there has been *two changes made to the standard AES algorithm namely in the Sub-bytes and Shift-rows step.* However, we have only incorporated the change in the Sub-bytes step, and used the same standard Shift-rows step in the implementation of the same.
+
+***Sub-bytes*** was modified to make it round key dependent; this is to ensure that a change in the key is easily discovered in the cipher text. To achieve that, the 16 bytes round key was used to obtain four eight-bit keys XORkey0, XORkey1, XORkey2, XORkey3 by XORing all the bytes of the corresponding row (Row i) in the round key matrix.
+
+After obtaining the XORkeys, each XORkeyi was then added to all of the bytes in the corresponding row (Row i) of the state matrix before substituting the values in the S-Box. After obtaining the new state matrix S, the bytes are then substituted in the substitution table (S-Box) using normal SubBytes operation.
 
 ## Hamming Distance and Avalanche Effect Comparison
 ### Hamming Distance
