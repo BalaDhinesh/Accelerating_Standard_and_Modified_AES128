@@ -23,7 +23,41 @@ Description of each of the sub-processes:
 - **Add Round Keys** - Now the resultant output of the previous stage is XOR-ed with the corresponding round key. Here, the 16 bytes are not considered as a matrix but as 128 bits of data.       
 
 [Reference](https://www.geeksforgeeks.org/advanced-encryption-standard-aes/)
+## AES Implementation:
+[Source code](https://github.com/BalaDhinesh/Modified-AES/tree/main/Baseline-AES)
 
+### Block design
+![image](https://user-images.githubusercontent.com/64545984/145572486-463e6a0c-879d-4626-845e-9dbe31bb8286.png)
+[Custom AES IP(my_ip_aes_bram) code](https://github.com/BalaDhinesh/Modified-AES/tree/main/ip_repo/myip_aes_bram_1.0) 
+
+### Reports:
+
+#### Timing Report:
+![image](https://user-images.githubusercontent.com/64545984/145572947-140ad821-d403-4e07-a699-8dd676fa9f60.png)
+
+#### Resource Utilization Report:
+![image](https://user-images.githubusercontent.com/64545984/145572997-2497a659-75f5-416a-8f23-4eabeedf2375.png)
+
+#### Power analysis report:
+![image](https://user-images.githubusercontent.com/64545984/145574561-7588bd99-2f5a-423d-ac30-9efb1d2b8faf.png)
+
+#### Noise Analysis Report:
+![image](https://user-images.githubusercontent.com/64545984/145573061-3ca2eeb4-963f-41e9-8407-e496d74eb166.png)
+
+### Software Development of AES using Vitis:
+[code](https://github.com/BalaDhinesh/Modified-AES/blob/main/VitisIDE/aes_encryption.c)
+### Output in Serial console:
+
+__No of cycles in hardware:__ 447(50MHz)
+
+__No of cycles in behavioural software simulation:__ 35500(50MHz)
+
+__No of cycles in Laptop/PC:__ 1256371(3.671GHz)
+
+### Performance from the PC/Laptop of AES code:
+![image](https://user-images.githubusercontent.com/64545984/145573559-f44572da-2fe2-4ed2-8963-06e09100a68d.png)
+
+[Source code-referred from online](https://github.com/openluopworld/aes_128)
 ## Modified AES Algorithm
 In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm have been presented in the following papers, and we tried implementing them and analysing them in terms of their security using Avalanche effect.
 
