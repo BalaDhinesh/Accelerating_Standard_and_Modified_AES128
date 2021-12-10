@@ -7,19 +7,24 @@ To accelerate the AES algorithm on FPGA and compare the speedup with both AES an
 - C codes to provide input text and for obtaining encrypted output text.
 - Comparing the speedup using our PC. 
 
-## What is Advanced Encryption Standard (AES) Algorithm?
+## Standard Advanced Encryption Standard (AES) Algorithm
 - Encryption specification for electronic data established by NIST (2001).                
 - AES128 encrypts data in blocks of 128 bits. However, it **operates on bytes** i.e., 16 bytes - which is represented by a 4x4 matrix containing one byte in each of its cell.    
 - Consists of linked operations involving specific substitutions and shuffling to obtain the 128 bit output.             
-- AES128 evaluates in **10 rounds**, each containing 4 sub-processes: **SubBytes** (substitution), **ShiftRows**, **MixColumns** (permutation), and **Add Round Key**.             
-- **SubBytes** substitutes each byte in the matrix with a different byte, with the help of a LUT (Look-up Table).            
-- **ShiftRows** performs circular shifting of each row of the matrix in a specific fashion.            
-- **MixColumns** performs mathematical manipulation on each byte and outputs a completely new byte (except in the last round).                
-- **Add Round Keys** - Output of previous *MixColums* is bitwise XOR-ed with a *Round Key*.             
-- **Decryption** in AES is just the reverse process of encryption.            
+- AES128 evaluates in **10 rounds**, each containing 4 sub-processes: **SubBytes** (substitution), **ShiftRows**, **MixColumns** (permutation), and **Add Round Key**. 
+
+Here is a small description of each of the steps that occurs inn each round:
+- **SubBytes** In this step each byte is substituted by another byte.(Its performed using a lookup table also called the S-box.This substitution is done in a way that a byte is never substituted by itself and also not substituted by another byte which is a compliment of the current byte.The result of this step is a 16 byte (4 x 4 ) matrix like before.
+
+- **ShiftRows** Each row is shifted a particular number of times. The first row is not shifted, the second row is shifted once to the left, the third row is shifted twice to the left, and the fourth row is shifted thrice to the left.
+
+- **MixColumns** performs mathematical manipulation on each byte and outputs a completely new byte (except in the last round).This step is basically a matrix multiplication where each column is multiplied with a specific matrix and thus the position of each byte in the column is changed as a result.          
+
+- **Add Round Keys** - Now the resultant output of the previous stage is XOR-ed with the corresponding round key. Here, the 16 bytes is not considered as a grid but just as 128 bits of data.       
+
 [Reference](https://www.geeksforgeeks.org/advanced-encryption-standard-aes/)
 
-## Modified AES Encryption
+## Modified AES Algorithm
 In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm has been presented in the following papers, and we have tried implementing them and analysing them in terms of their security performance using Avalanche effect comparison.
 
 ### Modified AES V1
