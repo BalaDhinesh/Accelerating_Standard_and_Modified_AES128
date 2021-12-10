@@ -19,7 +19,14 @@ To accelerate the AES algorithm on FPGA and compare the speedup with both AES an
 - **Decryption** in AES is just the reverse process of encryption.            
 [Reference](https://www.geeksforgeeks.org/advanced-encryption-standard-aes/)
 
-## Modified AES:
+## Modified AES Encryption
+In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm has been presented in the following papers, and we have tried implementing them and analysing them in terms of their security performance using Avalanche effect comparison.
+
+### Modified AES V1
+
+### Modified AES V2
+In this article titled ["Modified Advanced Encryption Standard Algorithm
+for Information Security"](https://pdfs.semanticscholar.org/7ee8/572e5457eb6bc043ecbefc933dda52f98875.pdf), (by O.C Abikoye (et. al)), there has been *two changes made to the standard AES algorithm namely in the Sub-bytes and Shift-rows step.* 
 
 ## Hamming Distance and Avalanche Effect Comparison
 ### Hamming Distance
