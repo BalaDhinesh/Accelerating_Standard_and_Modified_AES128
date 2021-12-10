@@ -499,7 +499,7 @@
 	end    
 
 	// Add user logic here
-    AES_128_bit AES_128_bit_top(
+    AES128 AES_128_bit_top(
     .clk(S_AXI_ACLK),
     .reset(S_AXI_ARESETN),
     .inp_data_0(slv_reg0),
