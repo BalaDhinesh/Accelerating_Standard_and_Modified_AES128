@@ -7,7 +7,7 @@ module LAST_ROUND(
 );
 
   wire [127:0] sb,sr,mcl,keyout,mod_out,keyout_0;
-
+// modified here - CIPHER ROUND ALGORITHM
   GENERATE_KEY t0(clk,ROUND_KEY,IN_KEY,keyout_0);
   GENERATE_KEY t1(clk,ROUND_KEY,keyout_0,keyout);
 
