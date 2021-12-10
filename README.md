@@ -1,7 +1,6 @@
-# Goal:
-Accelerating the AES algorithm on an FPGA and comparing the speedup with both AES and Modified AES algorithms.
+# Accelerating the AES algorithm on an FPGA and comparing the speedup with both AES and Modified AES algorithms
 
-## Deliverables:
+## Deliverables
 - Accelerating the AES (Advanced Encryption Standard) and Modified AES algorithms on an FPGA. Implementation using Verilog (including Test benches).
 - Wrapping the design using Microblaze/Zynq with AXI interface. 
 - C codes to provide input text and for obtaining the encrypted output text.
@@ -46,7 +45,7 @@ Here is the analysis of the Standard AES implemented in Verilog and C and accele
 ![image](https://user-images.githubusercontent.com/64545984/145573061-3ca2eeb4-963f-41e9-8407-e496d74eb166.png)
 
 ### Software Development of AES using Vitis
-[Source Code](https://github.com/BalaDhinesh/Modified-AES/blob/main/VitisIDE/aes_encryption.c)
+To run the same code in ________________ [Source Code](https://github.com/BalaDhinesh/Modified-AES/blob/main/VitisIDE/aes_encryption.c)
 
 ##### Output in Serial console
 
@@ -56,10 +55,17 @@ __No of cycles in behavioural software simulation:__ 35500(50MHz)
 
 __No of cycles in Laptop/PC:__ 1256371(3.671GHz)
 
-#### Performance from the PC/Laptop of AES code:
+__Time taken in Hardware:__ 0.00894 ms
+
+__Time taken in Laptop/PC:__ 0.34ms
+
+__Speedup Achieved:__  38.013x (times)
+
+##### Performance from the PC/Laptop of AES code
 ![image](https://user-images.githubusercontent.com/64545984/145573559-f44572da-2fe2-4ed2-8963-06e09100a68d.png)
 
-[Source code-referred from online](https://github.com/openluopworld/aes_128)
+To compare the running time of the AES algorithm in Laptop/PC with that of hardware, we used a [C reference from online](https://github.com/openluopworld/aes_128) and ran it on our local machine and used `perf` profiler to compute the time taken to run it.
+
 
 ## Modified AES Algorithm
 In order to enhance the randomness in the encryption and make it more complicated for decryption, two modified versions of the Standard AES algorithm have been presented in the following papers, and we tried implementing them and analysing them in terms of their security using Avalanche effect.
