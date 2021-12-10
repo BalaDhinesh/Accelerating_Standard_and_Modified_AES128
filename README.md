@@ -37,13 +37,18 @@ For the computation and analysis of Avalanche effect for Baseline AES and both t
 
 We randomly selected few bits in the input and flipped and computed the cipher key and inturn the Hamming distance and Avalanche effect. The results are tabulated as follows,
 
-Fig1,2,3
+<img width="489" alt="image" src="https://user-images.githubusercontent.com/64090461/145546462-65a35852-896c-47ad-9f61-a227534296cb.png">
+
+<img width="491" alt="image" src="https://user-images.githubusercontent.com/64090461/145546528-7a88c109-fcea-4393-950e-62802efb39e3.png">
+
+<img width="485" alt="image" src="https://user-images.githubusercontent.com/64090461/145546581-e54863a5-875b-4bda-9f3e-8cc5bbdb88dc.png">
+
 
 As you can see from the tables that, there has been an increaese in avalanche effect for certain random flips in the input, in the Modified AES V2, while not in Modified AES V1 as compared to the Baseline-AES.. But this result can't be a more generalised way of stating security performance in AES algorithms. 
 
 Hence we now, fix the input data and key same as mentioned above and flip each bit in the input and compute the Avalanche effect. The same for all the three algorithms has been plotted in the figure as shown below,
 
-Graph1
+![image](https://user-images.githubusercontent.com/64090461/145546650-c3f96bbc-d0d3-4e3e-bcc2-fc3c78460552.png)
 
 From this grpah, we also compute the average Avalnche effect for each of the algorithm and the results are as follows,
 
