@@ -1,0 +1,806 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9 (git sha1 1979e0b)
+
+
+-- Executing script file `synth.ys' --
+
+1. Executing Verilog-2005 frontend: MODIFIED_AES128_V1_top.v
+Parsing Verilog input from `MODIFIED_AES128_V1_top.v' to AST representation.
+Generating RTLIL representation for module `\MODIFIED_AES128_V1'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: Generate_Key.v
+Parsing Verilog input from `Generate_Key.v' to AST representation.
+Generating RTLIL representation for module `\GENERATE_KEY'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: Mix_Column.v
+Parsing Verilog input from `Mix_Column.v' to AST representation.
+Generating RTLIL representation for module `\MIX_COLUMNS'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: Round_Last.v
+Parsing Verilog input from `Round_Last.v' to AST representation.
+Generating RTLIL representation for module `\LAST_ROUND'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: forward_substitution_box.v
+Parsing Verilog input from `forward_substitution_box.v' to AST representation.
+Generating RTLIL representation for module `\FORWARD_SUBSTITUTION_BOX'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: Round.v
+Parsing Verilog input from `Round.v' to AST representation.
+Generating RTLIL representation for module `\ROUND_ITERATION'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: Shift_Row.v
+Parsing Verilog input from `Shift_Row.v' to AST representation.
+Generating RTLIL representation for module `\SHIFT_ROWS'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: Sub_Bytes.v
+Parsing Verilog input from `Sub_Bytes.v' to AST representation.
+Generating RTLIL representation for module `\SUB_BYTES'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: mod_addition.v
+Parsing Verilog input from `mod_addition.v' to AST representation.
+Generating RTLIL representation for module `\MOD_ADDITION'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: key_modify_part.v
+Parsing Verilog input from `key_modify_part.v' to AST representation.
+Generating RTLIL representation for module `\KEY_MODIFY_PART'.
+Successfully finished Verilog frontend.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \MODIFIED_AES128_V1
+Used module:     \LAST_ROUND
+Used module:         \SHIFT_ROWS
+Used module:         \MOD_ADDITION
+Used module:         \SUB_BYTES
+Used module:             \FORWARD_SUBSTITUTION_BOX
+Used module:         \GENERATE_KEY
+Used module:     \ROUND_ITERATION
+Used module:         \MIX_COLUMNS
+Used module:     \KEY_MODIFY_PART
+
+11.2. Analyzing design hierarchy..
+Top module:  \MODIFIED_AES128_V1
+Used module:     \LAST_ROUND
+Used module:         \SHIFT_ROWS
+Used module:         \MOD_ADDITION
+Used module:         \SUB_BYTES
+Used module:             \FORWARD_SUBSTITUTION_BOX
+Used module:         \GENERATE_KEY
+Used module:     \ROUND_ITERATION
+Used module:         \MIX_COLUMNS
+Used module:     \KEY_MODIFY_PART
+Removed 0 unused modules.
+Mapping positional arguments of cell ROUND_ITERATION.t6 (MIX_COLUMNS).
+Mapping positional arguments of cell ROUND_ITERATION.t4 (SHIFT_ROWS).
+Mapping positional arguments of cell ROUND_ITERATION.t3 (SUB_BYTES).
+Mapping positional arguments of cell ROUND_ITERATION.t2 (GENERATE_KEY).
+Mapping positional arguments of cell ROUND_ITERATION.t1 (GENERATE_KEY).
+Mapping positional arguments of cell ROUND_ITERATION.t0 (GENERATE_KEY).
+Mapping positional arguments of cell LAST_ROUND.t4 (SHIFT_ROWS).
+Mapping positional arguments of cell LAST_ROUND.t2 (SUB_BYTES).
+Mapping positional arguments of cell LAST_ROUND.t1 (GENERATE_KEY).
+Mapping positional arguments of cell LAST_ROUND.t0 (GENERATE_KEY).
+
+12. Executing PROC pass (convert processes to netlists).
+
+12.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$key_modify_part.v:18$838 in module KEY_MODIFY_PART.
+Marked 1 switch rules as full_case in process $proc$key_modify_part.v:18$831 in module KEY_MODIFY_PART.
+Marked 1 switch rules as full_case in process $proc$key_modify_part.v:18$824 in module KEY_MODIFY_PART.
+Marked 1 switch rules as full_case in process $proc$key_modify_part.v:18$817 in module KEY_MODIFY_PART.
+Marked 1 switch rules as full_case in process $proc$forward_substitution_box.v:9$750 in module FORWARD_SUBSTITUTION_BOX.
+Marked 1 switch rules as full_case in process $proc$Generate_Key.v:27$39 in module GENERATE_KEY.
+Marked 1 switch rules as full_case in process $proc$Generate_Key.v:27$34 in module GENERATE_KEY.
+Marked 1 switch rules as full_case in process $proc$Generate_Key.v:27$29 in module GENERATE_KEY.
+Marked 1 switch rules as full_case in process $proc$Generate_Key.v:27$24 in module GENERATE_KEY.
+Removed a total of 0 dead cases.
+
+12.3. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\SHIFT_ROWS.$proc$Shift_Row.v:7$754'.
+  Set init value: \SHIFT_DATA_REG = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+12.4. Executing PROC_ARST pass (detect async resets in processes).
+
+12.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$838'.
+     1/4: $1$func$\RCON$key_modify_part.v:16$812$\RCON[31:0]$844
+     2/4: $0$func$\RCON$key_modify_part.v:16$808$\RCON[31:0]$839
+     3/4: $0$func$\RCON$key_modify_part.v:16$812$\RCON[31:0]$840
+     4/4: $0$func$\RCON$key_modify_part.v:16$812$\ROUND_KEY[3:0]$841
+Creating decoders for process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$831'.
+     1/4: $1$func$\RCON$key_modify_part.v:15$811$\RCON[31:0]$837
+     2/4: $0$func$\RCON$key_modify_part.v:15$807$\RCON[31:0]$832
+     3/4: $0$func$\RCON$key_modify_part.v:15$811$\RCON[31:0]$833
+     4/4: $0$func$\RCON$key_modify_part.v:15$811$\ROUND_KEY[3:0]$834
+Creating decoders for process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$824'.
+     1/4: $1$func$\RCON$key_modify_part.v:14$810$\RCON[31:0]$830
+     2/4: $0$func$\RCON$key_modify_part.v:14$806$\RCON[31:0]$825
+     3/4: $0$func$\RCON$key_modify_part.v:14$810$\RCON[31:0]$826
+     4/4: $0$func$\RCON$key_modify_part.v:14$810$\ROUND_KEY[3:0]$827
+Creating decoders for process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$817'.
+     1/4: $1$func$\RCON$key_modify_part.v:13$809$\RCON[31:0]$823
+     2/4: $0$func$\RCON$key_modify_part.v:13$805$\RCON[31:0]$818
+     3/4: $0$func$\RCON$key_modify_part.v:13$809$\RCON[31:0]$819
+     4/4: $0$func$\RCON$key_modify_part.v:13$809$\ROUND_KEY[3:0]$820
+Creating decoders for process `\MOD_ADDITION.$proc$mod_addition.v:8$772'.
+     1/17: $0\i[31:0]
+     2/17: $0\MOD_ADD[127:0] [127:120]
+     3/17: $0\MOD_ADD[127:0] [119:112]
+     4/17: $0\MOD_ADD[127:0] [111:104]
+     5/17: $0\MOD_ADD[127:0] [103:96]
+     6/17: $0\MOD_ADD[127:0] [95:88]
+     7/17: $0\MOD_ADD[127:0] [87:80]
+     8/17: $0\MOD_ADD[127:0] [79:72]
+     9/17: $0\MOD_ADD[127:0] [71:64]
+    10/17: $0\MOD_ADD[127:0] [63:56]
+    11/17: $0\MOD_ADD[127:0] [55:48]
+    12/17: $0\MOD_ADD[127:0] [47:40]
+    13/17: $0\MOD_ADD[127:0] [39:32]
+    14/17: $0\MOD_ADD[127:0] [31:24]
+    15/17: $0\MOD_ADD[127:0] [23:16]
+    16/17: $0\MOD_ADD[127:0] [15:8]
+    17/17: $0\MOD_ADD[127:0] [7:0]
+Creating decoders for process `\SUB_BYTES.$proc$Sub_Bytes.v:30$755'.
+     1/1: $0\SB_DATA[127:0]
+Creating decoders for process `\SHIFT_ROWS.$proc$Shift_Row.v:7$754'.
+     1/1: $1\SHIFT_DATA_REG[127:0]
+Creating decoders for process `\SHIFT_ROWS.$proc$Shift_Row.v:9$753'.
+     1/16: $0\SHIFT_DATA_REG[127:0] [7:0]
+     2/16: $0\SHIFT_DATA_REG[127:0] [15:8]
+     3/16: $0\SHIFT_DATA_REG[127:0] [23:16]
+     4/16: $0\SHIFT_DATA_REG[127:0] [31:24]
+     5/16: $0\SHIFT_DATA_REG[127:0] [39:32]
+     6/16: $0\SHIFT_DATA_REG[127:0] [47:40]
+     7/16: $0\SHIFT_DATA_REG[127:0] [55:48]
+     8/16: $0\SHIFT_DATA_REG[127:0] [63:56]
+     9/16: $0\SHIFT_DATA_REG[127:0] [71:64]
+    10/16: $0\SHIFT_DATA_REG[127:0] [79:72]
+    11/16: $0\SHIFT_DATA_REG[127:0] [87:80]
+    12/16: $0\SHIFT_DATA_REG[127:0] [95:88]
+    13/16: $0\SHIFT_DATA_REG[127:0] [103:96]
+    14/16: $0\SHIFT_DATA_REG[127:0] [111:104]
+    15/16: $0\SHIFT_DATA_REG[127:0] [119:112]
+    16/16: $0\SHIFT_DATA_REG[127:0] [127:120]
+Creating decoders for process `\FORWARD_SUBSTITUTION_BOX.$proc$forward_substitution_box.v:9$750'.
+     1/1: $0\C_REG[7:0]
+Creating decoders for process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+     1/208: $0\MIXED_DATA_REG[127:0] [7:0]
+     2/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [0]
+     3/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [1]
+     4/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [2]
+     5/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [3]
+     6/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [4]
+     7/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [5]
+     8/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [6]
+     9/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN[7:0]$136 [7]
+    10/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN4[7:0]$140
+    11/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN3[7:0]$139
+    12/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN2[7:0]$138
+    13/208: $0$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN1[7:0]$137
+    14/208: $0\MIXED_DATA_REG[127:0] [15:8]
+    15/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [0]
+    16/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [1]
+    17/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [2]
+    18/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [3]
+    19/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [4]
+    20/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [5]
+    21/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [6]
+    22/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN[7:0]$131 [7]
+    23/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN4[7:0]$135
+    24/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN3[7:0]$134
+    25/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN2[7:0]$133
+    26/208: $0$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN1[7:0]$132
+    27/208: $0\MIXED_DATA_REG[127:0] [23:16]
+    28/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [0]
+    29/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [1]
+    30/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [2]
+    31/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [3]
+    32/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [4]
+    33/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [5]
+    34/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [6]
+    35/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN[7:0]$126 [7]
+    36/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN4[7:0]$130
+    37/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN3[7:0]$129
+    38/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN2[7:0]$128
+    39/208: $0$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN1[7:0]$127
+    40/208: $0\MIXED_DATA_REG[127:0] [31:24]
+    41/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [0]
+    42/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [1]
+    43/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [2]
+    44/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [3]
+    45/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [4]
+    46/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [5]
+    47/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [6]
+    48/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN[7:0]$121 [7]
+    49/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN4[7:0]$125
+    50/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN3[7:0]$124
+    51/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN2[7:0]$123
+    52/208: $0$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN1[7:0]$122
+    53/208: $0\MIXED_DATA_REG[127:0] [39:32]
+    54/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [0]
+    55/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [1]
+    56/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [2]
+    57/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [3]
+    58/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [4]
+    59/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [5]
+    60/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [6]
+    61/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN[7:0]$116 [7]
+    62/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN4[7:0]$120
+    63/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN3[7:0]$119
+    64/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN2[7:0]$118
+    65/208: $0$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN1[7:0]$117
+    66/208: $0\MIXED_DATA_REG[127:0] [47:40]
+    67/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [0]
+    68/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [1]
+    69/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [2]
+    70/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [3]
+    71/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [4]
+    72/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [5]
+    73/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [6]
+    74/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN[7:0]$111 [7]
+    75/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN4[7:0]$115
+    76/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN3[7:0]$114
+    77/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN2[7:0]$113
+    78/208: $0$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN1[7:0]$112
+    79/208: $0\MIXED_DATA_REG[127:0] [55:48]
+    80/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [0]
+    81/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [1]
+    82/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [2]
+    83/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [3]
+    84/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [4]
+    85/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [5]
+    86/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [6]
+    87/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN[7:0]$106 [7]
+    88/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN4[7:0]$110
+    89/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN3[7:0]$109
+    90/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN2[7:0]$108
+    91/208: $0$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN1[7:0]$107
+    92/208: $0\MIXED_DATA_REG[127:0] [63:56]
+    93/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [0]
+    94/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [1]
+    95/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [2]
+    96/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [3]
+    97/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [4]
+    98/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [5]
+    99/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [6]
+   100/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN[7:0]$101 [7]
+   101/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN4[7:0]$105
+   102/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN3[7:0]$104
+   103/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN2[7:0]$103
+   104/208: $0$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN1[7:0]$102
+   105/208: $0\MIXED_DATA_REG[127:0] [71:64]
+   106/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [0]
+   107/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [1]
+   108/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [2]
+   109/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [3]
+   110/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [4]
+   111/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [5]
+   112/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [6]
+   113/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN[7:0]$96 [7]
+   114/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN4[7:0]$100
+   115/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN3[7:0]$99
+   116/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN2[7:0]$98
+   117/208: $0$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN1[7:0]$97
+   118/208: $0\MIXED_DATA_REG[127:0] [79:72]
+   119/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [0]
+   120/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [1]
+   121/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [2]
+   122/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [3]
+   123/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [4]
+   124/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [5]
+   125/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [6]
+   126/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN[7:0]$91 [7]
+   127/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN4[7:0]$95
+   128/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN3[7:0]$94
+   129/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN2[7:0]$93
+   130/208: $0$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN1[7:0]$92
+   131/208: $0\MIXED_DATA_REG[127:0] [87:80]
+   132/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [0]
+   133/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [1]
+   134/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [2]
+   135/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [3]
+   136/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [4]
+   137/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [5]
+   138/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [6]
+   139/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN[7:0]$86 [7]
+   140/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN4[7:0]$90
+   141/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN3[7:0]$89
+   142/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN2[7:0]$88
+   143/208: $0$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN1[7:0]$87
+   144/208: $0\MIXED_DATA_REG[127:0] [95:88]
+   145/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [0]
+   146/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [1]
+   147/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [2]
+   148/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [3]
+   149/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [4]
+   150/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [5]
+   151/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [6]
+   152/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN[7:0]$81 [7]
+   153/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN4[7:0]$85
+   154/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN3[7:0]$84
+   155/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN2[7:0]$83
+   156/208: $0$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN1[7:0]$82
+   157/208: $0\MIXED_DATA_REG[127:0] [103:96]
+   158/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [0]
+   159/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [1]
+   160/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [2]
+   161/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [3]
+   162/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [4]
+   163/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [5]
+   164/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [6]
+   165/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN[7:0]$76 [7]
+   166/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN4[7:0]$80
+   167/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN3[7:0]$79
+   168/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN2[7:0]$78
+   169/208: $0$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN1[7:0]$77
+   170/208: $0\MIXED_DATA_REG[127:0] [111:104]
+   171/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [0]
+   172/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [1]
+   173/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [2]
+   174/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [3]
+   175/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [4]
+   176/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [5]
+   177/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [6]
+   178/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN[7:0]$71 [7]
+   179/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN4[7:0]$75
+   180/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN3[7:0]$74
+   181/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN2[7:0]$73
+   182/208: $0$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN1[7:0]$72
+   183/208: $0\MIXED_DATA_REG[127:0] [119:112]
+   184/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [0]
+   185/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [1]
+   186/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [2]
+   187/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [3]
+   188/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [4]
+   189/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [5]
+   190/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [6]
+   191/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN[7:0]$62 [7]
+   192/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN4[7:0]$70
+   193/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN3[7:0]$69
+   194/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN2[7:0]$68
+   195/208: $0$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN1[7:0]$61
+   196/208: $0\MIXED_DATA_REG[127:0] [127:120]
+   197/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [0]
+   198/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [1]
+   199/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [2]
+   200/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [3]
+   201/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [4]
+   202/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [5]
+   203/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [6]
+   204/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN[7:0]$67 [7]
+   205/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN4[7:0]$66
+   206/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN3[7:0]$65
+   207/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN2[7:0]$64
+   208/208: $0$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN1[7:0]$63
+Creating decoders for process `\GENERATE_KEY.$proc$Generate_Key.v:27$39'.
+     1/4: $1$func$\RCON$Generate_Key.v:19$9$\RCON[31:0]$43
+     2/4: $0$func$\RCON$Generate_Key.v:19$5$\RCON[31:0]$40
+     3/4: $0$func$\RCON$Generate_Key.v:19$9$\RCON[31:0]$41
+     4/4: $0$func$\RCON$Generate_Key.v:19$9$\ROUND_KEY[3:0]$42
+Creating decoders for process `\GENERATE_KEY.$proc$Generate_Key.v:27$34'.
+     1/4: $1$func$\RCON$Generate_Key.v:18$8$\RCON[31:0]$38
+     2/4: $0$func$\RCON$Generate_Key.v:18$4$\RCON[31:0]$35
+     3/4: $0$func$\RCON$Generate_Key.v:18$8$\RCON[31:0]$36
+     4/4: $0$func$\RCON$Generate_Key.v:18$8$\ROUND_KEY[3:0]$37
+Creating decoders for process `\GENERATE_KEY.$proc$Generate_Key.v:27$29'.
+     1/4: $1$func$\RCON$Generate_Key.v:17$7$\RCON[31:0]$33
+     2/4: $0$func$\RCON$Generate_Key.v:17$3$\RCON[31:0]$30
+     3/4: $0$func$\RCON$Generate_Key.v:17$7$\RCON[31:0]$31
+     4/4: $0$func$\RCON$Generate_Key.v:17$7$\ROUND_KEY[3:0]$32
+Creating decoders for process `\GENERATE_KEY.$proc$Generate_Key.v:27$24'.
+     1/4: $1$func$\RCON$Generate_Key.v:16$6$\RCON[31:0]$28
+     2/4: $0$func$\RCON$Generate_Key.v:16$2$\RCON[31:0]$26
+     3/4: $0$func$\RCON$Generate_Key.v:16$6$\RCON[31:0]$25
+     4/4: $0$func$\RCON$Generate_Key.v:16$6$\ROUND_KEY[3:0]$27
+
+12.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:16$808$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$838'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:16$812$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$838'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:16$812$\ROUND_KEY' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$838'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:15$807$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$831'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:15$811$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$831'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:15$811$\ROUND_KEY' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$831'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:14$806$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$824'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:14$810$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$824'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:14$810$\ROUND_KEY' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$824'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:13$805$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$817'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:13$809$\RCON' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$817'.
+No latch inferred for signal `\KEY_MODIFY_PART.$func$\RCON$key_modify_part.v:13$809$\ROUND_KEY' from process `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$817'.
+No latch inferred for signal `\SUB_BYTES.\SB_DATA' from process `\SUB_BYTES.$proc$Sub_Bytes.v:30$755'.
+No latch inferred for signal `\SHIFT_ROWS.\SHIFT_DATA_REG' from process `\SHIFT_ROWS.$proc$Shift_Row.v:9$753'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:11$45$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.\MIXED_DATA_REG' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:10$44$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:10$44$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:11$45$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:12$46$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:12$46$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:13$47$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:13$47$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:15$48$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:15$48$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:16$49$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:16$49$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:17$50$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:17$50$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:18$51$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:18$51$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:20$52$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:20$52$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:21$53$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:21$53$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:22$54$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:22$54$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:23$55$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:23$55$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:25$56$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:25$56$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:26$57$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:26$57$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:27$58$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:27$58$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:28$59$\MIXCOLUMN' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN1' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN2' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN3' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\MIX_COLUMNS.$func$\MIXCOLUMN$Mix_Column.v:28$59$\IN4' from process `\MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:19$5$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$39'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:19$9$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$39'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:19$9$\ROUND_KEY' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$39'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:18$4$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$34'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:18$8$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$34'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:18$8$\ROUND_KEY' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$34'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:17$3$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$29'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:17$7$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$29'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:17$7$\ROUND_KEY' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$29'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:16$6$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$24'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:16$2$\RCON' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$24'.
+No latch inferred for signal `\GENERATE_KEY.$func$\RCON$Generate_Key.v:16$6$\ROUND_KEY' from process `\GENERATE_KEY.$proc$Generate_Key.v:27$24'.
+
+12.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\MOD_ADDITION.\MOD_ADD' using process `\MOD_ADDITION.$proc$mod_addition.v:8$772'.
+  created $dff cell `$procdff$1198' with positive edge clock.
+Creating register for signal `\MOD_ADDITION.\i' using process `\MOD_ADDITION.$proc$mod_addition.v:8$772'.
+  created $dff cell `$procdff$1199' with positive edge clock.
+Creating register for signal `\FORWARD_SUBSTITUTION_BOX.\C_REG' using process `\FORWARD_SUBSTITUTION_BOX.$proc$forward_substitution_box.v:9$750'.
+  created $dff cell `$procdff$1200' with positive edge clock.
+
+12.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$838'.
+Removing empty process `KEY_MODIFY_PART.$proc$key_modify_part.v:18$838'.
+Found and cleaned up 1 empty switch in `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$831'.
+Removing empty process `KEY_MODIFY_PART.$proc$key_modify_part.v:18$831'.
+Found and cleaned up 1 empty switch in `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$824'.
+Removing empty process `KEY_MODIFY_PART.$proc$key_modify_part.v:18$824'.
+Found and cleaned up 1 empty switch in `\KEY_MODIFY_PART.$proc$key_modify_part.v:18$817'.
+Removing empty process `KEY_MODIFY_PART.$proc$key_modify_part.v:18$817'.
+Removing empty process `MOD_ADDITION.$proc$mod_addition.v:8$772'.
+Removing empty process `SUB_BYTES.$proc$Sub_Bytes.v:30$755'.
+Removing empty process `SHIFT_ROWS.$proc$Shift_Row.v:7$754'.
+Removing empty process `SHIFT_ROWS.$proc$Shift_Row.v:9$753'.
+Found and cleaned up 1 empty switch in `\FORWARD_SUBSTITUTION_BOX.$proc$forward_substitution_box.v:9$750'.
+Removing empty process `FORWARD_SUBSTITUTION_BOX.$proc$forward_substitution_box.v:9$750'.
+Removing empty process `MIX_COLUMNS.$proc$Mix_Column.v:9$60'.
+Found and cleaned up 1 empty switch in `\GENERATE_KEY.$proc$Generate_Key.v:27$39'.
+Removing empty process `GENERATE_KEY.$proc$Generate_Key.v:27$39'.
+Found and cleaned up 1 empty switch in `\GENERATE_KEY.$proc$Generate_Key.v:27$34'.
+Removing empty process `GENERATE_KEY.$proc$Generate_Key.v:27$34'.
+Found and cleaned up 1 empty switch in `\GENERATE_KEY.$proc$Generate_Key.v:27$29'.
+Removing empty process `GENERATE_KEY.$proc$Generate_Key.v:27$29'.
+Found and cleaned up 1 empty switch in `\GENERATE_KEY.$proc$Generate_Key.v:27$24'.
+Removing empty process `GENERATE_KEY.$proc$Generate_Key.v:27$24'.
+Cleaned up 9 empty switches.
+
+13. Executing OPT pass (performing simple optimizations).
+
+13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module KEY_MODIFY_PART.
+<suppressed ~8 debug messages>
+Optimizing module MOD_ADDITION.
+<suppressed ~16 debug messages>
+Optimizing module SUB_BYTES.
+Optimizing module SHIFT_ROWS.
+Optimizing module ROUND_ITERATION.
+Optimizing module FORWARD_SUBSTITUTION_BOX.
+<suppressed ~1 debug messages>
+Optimizing module LAST_ROUND.
+Optimizing module MIX_COLUMNS.
+Optimizing module GENERATE_KEY.
+<suppressed ~4 debug messages>
+Optimizing module MODIFIED_AES128_V1.
+
+13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\KEY_MODIFY_PART'.
+Finding identical cells in module `\MOD_ADDITION'.
+Finding identical cells in module `\SUB_BYTES'.
+Finding identical cells in module `\SHIFT_ROWS'.
+Finding identical cells in module `\ROUND_ITERATION'.
+Finding identical cells in module `\FORWARD_SUBSTITUTION_BOX'.
+Finding identical cells in module `\LAST_ROUND'.
+Finding identical cells in module `\MIX_COLUMNS'.
+Finding identical cells in module `\GENERATE_KEY'.
+<suppressed ~99 debug messages>
+Finding identical cells in module `\MODIFIED_AES128_V1'.
+Removed a total of 33 cells.
+
+13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \KEY_MODIFY_PART..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \MOD_ADDITION..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \SUB_BYTES..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \SHIFT_ROWS..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ROUND_ITERATION..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \FORWARD_SUBSTITUTION_BOX..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \LAST_ROUND..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \MIX_COLUMNS..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \GENERATE_KEY..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \MODIFIED_AES128_V1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \KEY_MODIFY_PART.
+  Optimizing cells in module \MOD_ADDITION.
+  Optimizing cells in module \SUB_BYTES.
+  Optimizing cells in module \SHIFT_ROWS.
+  Optimizing cells in module \ROUND_ITERATION.
+  Optimizing cells in module \FORWARD_SUBSTITUTION_BOX.
+  Optimizing cells in module \LAST_ROUND.
+  Optimizing cells in module \MIX_COLUMNS.
+  Optimizing cells in module \GENERATE_KEY.
+  Optimizing cells in module \MODIFIED_AES128_V1.
+Performed a total of 0 changes.
+
+13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\KEY_MODIFY_PART'.
+Finding identical cells in module `\MOD_ADDITION'.
+Finding identical cells in module `\SUB_BYTES'.
+Finding identical cells in module `\SHIFT_ROWS'.
+Finding identical cells in module `\ROUND_ITERATION'.
+Finding identical cells in module `\FORWARD_SUBSTITUTION_BOX'.
+Finding identical cells in module `\LAST_ROUND'.
+Finding identical cells in module `\MIX_COLUMNS'.
+Finding identical cells in module `\GENERATE_KEY'.
+<suppressed ~27 debug messages>
+Finding identical cells in module `\MODIFIED_AES128_V1'.
+Removed a total of 9 cells.
+
+13.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Removing $procdff$1199 ($dff) from module MOD_ADDITION.
+Replaced 1 DFF cells.
+
+13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \KEY_MODIFY_PART..
+Finding unused cells or wires in module \MOD_ADDITION..
+Finding unused cells or wires in module \SUB_BYTES..
+Finding unused cells or wires in module \SHIFT_ROWS..
+Finding unused cells or wires in module \ROUND_ITERATION..
+Finding unused cells or wires in module \FORWARD_SUBSTITUTION_BOX..
+Finding unused cells or wires in module \LAST_ROUND..
+Finding unused cells or wires in module \MIX_COLUMNS..
+Finding unused cells or wires in module \GENERATE_KEY..
+Finding unused cells or wires in module \MODIFIED_AES128_V1..
+Removed 0 unused cells and 402 unused wires.
+<suppressed ~12 debug messages>
+
+13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FORWARD_SUBSTITUTION_BOX.
+Optimizing module GENERATE_KEY.
+Optimizing module KEY_MODIFY_PART.
+Optimizing module LAST_ROUND.
+Optimizing module MIX_COLUMNS.
+Optimizing module MODIFIED_AES128_V1.
+Optimizing module MOD_ADDITION.
+Optimizing module ROUND_ITERATION.
+Optimizing module SHIFT_ROWS.
+Optimizing module SUB_BYTES.
+
+13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FORWARD_SUBSTITUTION_BOX..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \GENERATE_KEY..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \KEY_MODIFY_PART..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \LAST_ROUND..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \MIX_COLUMNS..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \MODIFIED_AES128_V1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \MOD_ADDITION..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ROUND_ITERATION..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \SHIFT_ROWS..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \SUB_BYTES..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FORWARD_SUBSTITUTION_BOX.
+  Optimizing cells in module \GENERATE_KEY.
+  Optimizing cells in module \KEY_MODIFY_PART.
+  Optimizing cells in module \LAST_ROUND.
+  Optimizing cells in module \MIX_COLUMNS.
+  Optimizing cells in module \MODIFIED_AES128_V1.
+  Optimizing cells in module \MOD_ADDITION.
+  Optimizing cells in module \ROUND_ITERATION.
+  Optimizing cells in module \SHIFT_ROWS.
+  Optimizing cells in module \SUB_BYTES.
+Performed a total of 0 changes.
+
+13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FORWARD_SUBSTITUTION_BOX'.
+Finding identical cells in module `\GENERATE_KEY'.
+Finding identical cells in module `\KEY_MODIFY_PART'.
+Finding identical cells in module `\LAST_ROUND'.
+Finding identical cells in module `\MIX_COLUMNS'.
+Finding identical cells in module `\MODIFIED_AES128_V1'.
+Finding identical cells in module `\MOD_ADDITION'.
+Finding identical cells in module `\ROUND_ITERATION'.
+Finding identical cells in module `\SHIFT_ROWS'.
+Finding identical cells in module `\SUB_BYTES'.
+Removed a total of 0 cells.
+
+13.13. Executing OPT_RMDFF pass (remove dff with constant values).
+
+13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FORWARD_SUBSTITUTION_BOX..
+Finding unused cells or wires in module \GENERATE_KEY..
+Finding unused cells or wires in module \KEY_MODIFY_PART..
+Finding unused cells or wires in module \LAST_ROUND..
+Finding unused cells or wires in module \MIX_COLUMNS..
+Finding unused cells or wires in module \MODIFIED_AES128_V1..
+Finding unused cells or wires in module \MOD_ADDITION..
+Finding unused cells or wires in module \ROUND_ITERATION..
+Finding unused cells or wires in module \SHIFT_ROWS..
+Finding unused cells or wires in module \SUB_BYTES..
+
+13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FORWARD_SUBSTITUTION_BOX.
+Optimizing module GENERATE_KEY.
+Optimizing module KEY_MODIFY_PART.
+Optimizing module LAST_ROUND.
+Optimizing module MIX_COLUMNS.
+Optimizing module MODIFIED_AES128_V1.
+Optimizing module MOD_ADDITION.
+Optimizing module ROUND_ITERATION.
+Optimizing module SHIFT_ROWS.
+Optimizing module SUB_BYTES.
+
+13.16. Finished OPT passes. (There is nothing left to do.)
+
+14. Executing Verilog backend.
+Dumping module `\FORWARD_SUBSTITUTION_BOX'.
+Dumping module `\GENERATE_KEY'.
+Dumping module `\KEY_MODIFY_PART'.
+Dumping module `\LAST_ROUND'.
+Dumping module `\MIX_COLUMNS'.
+Dumping module `\MODIFIED_AES128_V1'.
+Dumping module `\MOD_ADDITION'.
+Dumping module `\ROUND_ITERATION'.
+Dumping module `\SHIFT_ROWS'.
+Dumping module `\SUB_BYTES'.
+
+End of script. Logfile hash: dff47fcbf8
+CPU: user 1.77s system 0.02s, MEM: 20.96 MB total, 14.89 MB resident
+Yosys 0.9 (git sha1 1979e0b)
+Time spent: 20% 2x write_verilog (0 sec), 15% 2x opt_clean (0 sec), ...
